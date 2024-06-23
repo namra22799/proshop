@@ -60,7 +60,6 @@ SIMPLE_JWT = {
     "UPDATE_LAST_LOGIN": False,
 
     "ALGORITHM": "HS256",
-    # "SIGNING_KEY": SECRET_KEY,
     "VERIFYING_KEY": "",
     "AUDIENCE": None,
     "ISSUER": None,
@@ -124,29 +123,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'proshop',
         'USER' : 'postgres',
-        # 'PASSWORD':'Admin123',
         'PASSWORD' : os.environ.get('DB_PASS'),
         'HOST': 'proshop-identifier1.cjmk8myek5d1.us-east-2.rds.amazonaws.com',
         'PORT': '5432'  
     }
 }
-# AWS Credentials - UserName : postgres, Password : Admin123
 
 
 
@@ -205,10 +191,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # To allow api call from front end
 CORS_ALLOW_ALL_ORIGINS = True
 
-# super user credentials:
-# username : Admin
-# email : admin@email.com
-# password: Admin123
 
 # Set up for s3 bucket
 #Add "storages" in installed apps
